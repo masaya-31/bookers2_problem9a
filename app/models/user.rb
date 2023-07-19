@@ -18,6 +18,8 @@ class User < ApplicationRecord
   has_many :followings_users, through: :followers, source: :followed
   has_many :followers_users, through: :followeds, source: :follower
 
+  has_many :read_counts, dependent: :destroy
+
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: { maximum: 50 }
 

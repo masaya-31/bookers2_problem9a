@@ -4,6 +4,9 @@ class Book < ApplicationRecord
   has_many :favorited_users, through: :favorites, source: :user
 
   has_many :book_comments, dependent: :destroy
+
+  has_many :read_counts, dependent: :destroy
+
   has_one_attached :profile_image
   validates :title,presence:true
   validates :body,presence:true,length:{maximum:200}
